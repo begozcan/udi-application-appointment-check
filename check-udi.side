@@ -29,6 +29,15 @@
       "command": "click",
       "target": "linkText=Gå til søknad"
     }, {
+      "id": "udi-check-not-booked",
+      "command": "storeText",
+      "target": "xpath=//strong[contains(text(),'INGEN LEDIGE TIMER')]",
+      "value": "notBooked"
+    }, {
+      "id": "udi-check-not-booked",
+      "command": "if",
+      "target": "${notBooked} != 'INGEN LEDIGE TIMER'"
+    }, {
       "id": "udi-change-appointment",
       "command": "click",
       "target": "xpath=//button[contains(.,'Change appointment')]"
@@ -76,6 +85,9 @@
       "target": "linkText=Log out"
     }, {
       "id": "udi-end-no-appointment",
+      "command": "end"
+    }, {
+      "id": "udi-end-not-booked",
       "command": "end"
     }]
   }],
