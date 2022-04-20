@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
   schedule:
     - cron: "*/30 4-23 * * *"
 
