@@ -11,6 +11,10 @@
       "command": "open",
       "target": "/"
     }, {
+      "id": "udi-set-size",
+      "command": "setWindowSize",
+      "target": "1920x1080"
+    }, {
       "id": "udi-type-password",
       "command": "type",
       "target": "id=password",
@@ -29,66 +33,17 @@
       "command": "click",
       "target": "linkText=Gå til søknad"
     }, {
-      "id": "udi-check-not-booked",
-      "command": "storeText",
-      "target": "xpath=//strong[contains(text(),'INGEN LEDIGE TIMER')]",
-      "value": "notBooked"
+      "id": "udi-wait",
+      "command": "pause",
+      "target": "5000"
     }, {
       "id": "udi-check-not-booked",
-      "command": "if",
-      "target": "${notBooked} != 'INGEN LEDIGE TIMER'"
-    }, {
-      "id": "udi-change-appointment",
-      "command": "click",
-      "target": "xpath=//button[contains(.,'Change appointment')]"
-    }, {
-      "id": "udi-check-no-appointment",
-      "command": "storeText",
-      "target": "css=body",
-      "value": "nothing"
-    }, {
-      "id": "udi-check-no-appointment",
-      "command": "if",
-      "target": "${nothing} != 'No appointments available for booking'"
-    }, {
-      "id": "udi-check-months",
-      "command": "do"
-    }, {
-      "id": "udi-check-half-booked",
-      "command": "assertElementNotPresent",
-      "target": "css=.bookingCalendarHalfBookedDay"
-    }, {
-      "id": "udi-check-little-booked",
-      "command": "assertElementNotPresent",
-      "target": "css=.bookingCalendarBookedDay"
-    }, {
-      "id": "udi-store-current",
-      "command": "storeText",
-      "target": "xpath=//div[@id='ctl00_BodyRegion_PageRegion_MainRegion_appointmentReservation_appointmentCalendar_pnlCalendarTop']/div/div[3]/h2",
-      "value": "current"
-    }, {
-      "id": "udi-rank-date",
-      "command": "executeScript",
-      "target": "return Date.parse('1 ' + ${current})",
-      "value": "ranked"
-    }, {
-      "id": "udi-goto-next-month",
-      "command": "click",
-      "target": "linkText=Next month"
-    }, {
-      "id": "udi-repeat-month",
-      "command": "repeatIf",
-      "target": "${ranked} < Date.parse('1 %CHECK_LIMIT%')"
+      "command": "assertElementPresent",
+      "target": "xpath=//strong[contains(text(),'INGEN LEDIGE TIMER')]"
     }, {
       "id": "udi-logout",
       "command": "click",
-      "target": "linkText=Log out"
-    }, {
-      "id": "udi-end-no-appointment",
-      "command": "end"
-    }, {
-      "id": "udi-end-not-booked",
-      "command": "end"
+      "target": "css=.jss213 > button.MuiButtonBase-root[type=button]"
     }]
   }],
   "suites": [{
